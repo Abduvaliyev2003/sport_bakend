@@ -1,0 +1,3079 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Sport Api Swagger Documentation Anatation",
+        "description": "Sport Api Documentation to build the frontend of this site",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "abduvaliyevasad23@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000",
+            "description": "Sport api server link"
+        }
+    ],
+    "paths": {
+        "/api/allData": {
+            "get": {
+                "tags": [
+                    "AllData"
+                ],
+                "summary": "Get all data ",
+                "description": "Via this link All datas come",
+                "operationId": "allData",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/allData/{id}": {
+            "get": {
+                "tags": [
+                    "AllData"
+                ],
+                "summary": "Get one data from Direction database",
+                "description": "Via this link a Direction`s data comes to show",
+                "operationId": "showAllData",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID for all data",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login the user",
+                "operationId": "login",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "login": {
+                                        "description": "Type your login to enter",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "Enter you password",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "405": {
+                        "description": "Invalid input"
+                    },
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Register a user",
+                "operationId": "register",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "login": {
+                                        "description": "Type your login",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "Type your password",
+                                        "type": "password"
+                                    },
+                                    "fillial_id": {
+                                        "description": "Type your Fillial",
+                                        "type": "integer"
+                                    },
+                                    "pasport_id": {
+                                        "description": "Type your Pasport",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/forgot-password": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "If you forgot password",
+                "description": "Change you password with your email",
+                "operationId": "7af8817e88ba5874543ff38f188248f1",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "description": "enter your email to updated password",
+                                        "type": "email"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/avatar": {
+            "get": {
+                "tags": [
+                    "Avatar"
+                ],
+                "summary": "Get all data from Avatar database",
+                "description": "Via this link All Avatar` datas come",
+                "operationId": "avatar",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Avatar"
+                ],
+                "summary": "Store an avatar",
+                "operationId": "storeAvatar",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "description": "Type user id",
+                                        "type": "integer"
+                                    },
+                                    "photo": {
+                                        "description": "Upload your photo avatar",
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/avatar/{avatar}": {
+            "get": {
+                "tags": [
+                    "Avatar"
+                ],
+                "summary": "Get one data from Avatar database",
+                "description": "Via this link a Avatar`s data comes to show",
+                "operationId": "showAvatar",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "avatar",
+                        "in": "path",
+                        "description": "ID for avatar data",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/avatar/{avatar}/update": {
+            "put": {
+                "tags": [
+                    "Avatar"
+                ],
+                "summary": "Updated",
+                "description": "Update this avatar",
+                "operationId": "updateAvatar",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "avatar",
+                        "in": "path",
+                        "description": "avatar that to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "photo": {
+                                        "description": "Upload your photo avatar",
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid avatar supplied"
+                    },
+                    "404": {
+                        "description": "avatar not found"
+                    },
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/avatar/{avatar}/delete": {
+            "delete": {
+                "tags": [
+                    "Avatar"
+                ],
+                "summary": "Deletes a avatar",
+                "operationId": "destroyAvatar",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "avatar",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid course supplied"
+                    },
+                    "404": {
+                        "description": "Avatar not found"
+                    }
+                }
+            }
+        },
+        "/api/check": {
+            "get": {
+                "tags": [
+                    "Check"
+                ],
+                "summary": "Get all data from fillials database",
+                "description": "Via this link All fillials` datas come",
+                "operationId": "check",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Check"
+                ],
+                "summary": "Register a pasport",
+                "operationId": "storeCheck",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "direction_id": {
+                                        "description": "direction ID",
+                                        "type": "integer"
+                                    },
+                                    "direction_category_id": {
+                                        "description": "Direction category ID",
+                                        "type": "integer"
+                                    },
+                                    "score": {
+                                        "description": "Direction category score",
+                                        "type": "integer"
+                                    },
+                                    "user_id": {
+                                        "description": "User ID",
+                                        "type": "integer"
+                                    },
+                                    "direction_category_name": {
+                                        "description": "Direction category name",
+                                        "type": "string"
+                                    },
+                                    "direction_category_name_answer": {
+                                        "description": "Direction category answer",
+                                        "type": "string"
+                                    },
+                                    "pdf": {
+                                        "description": "upload any pdf file",
+                                        "type": "file"
+                                    },
+                                    "admin_permission": {
+                                        "description": "Permission of one of an Admin",
+                                        "type": "string"
+                                    },
+                                    "messages": {
+                                        "description": "message of one of an Admin",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/check/{check}": {
+            "get": {
+                "tags": [
+                    "Check"
+                ],
+                "summary": "Get one data from Avatar database",
+                "description": "Via this link a Avatar`s data comes to show",
+                "operationId": "showCheck",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "check",
+                        "in": "path",
+                        "description": "ID for avatar data",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/check/{check}/update": {
+            "post": {
+                "tags": [
+                    "Check"
+                ],
+                "summary": "Updated",
+                "description": "Update this avatar",
+                "operationId": "updateCheck",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "check",
+                        "in": "path",
+                        "description": "avatar that to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "direction_category_name": {
+                                        "description": "Direction category name",
+                                        "type": "string"
+                                    },
+                                    "score": {
+                                        "description": "score",
+                                        "type": "integer"
+                                    },
+                                    "pdf": {
+                                        "description": "upload any pdf file",
+                                        "type": "file"
+                                    },
+                                    "admin_permission": {
+                                        "description": "Permission of one of an Admin",
+                                        "type": "string"
+                                    },
+                                    "messages": {
+                                        "description": "message of one of an Admin",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid avatar supplied"
+                    },
+                    "404": {
+                        "description": "avatar not found"
+                    },
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/check/{check}/delete": {
+            "delete": {
+                "tags": [
+                    "Check"
+                ],
+                "summary": "Deletes a avatar",
+                "operationId": "destroyCheck",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "check",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid course supplied"
+                    },
+                    "404": {
+                        "description": "Avatar not found"
+                    }
+                }
+            }
+        },
+        "/api/checkUser": {
+            "get": {
+                "tags": [
+                    "CheckUser"
+                ],
+                "summary": "Get all data from checkUser database",
+                "description": "Via this link All checkUser` datas come",
+                "operationId": "checkUser",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "CheckUser"
+                ],
+                "summary": "Register a pasport",
+                "operationId": "storeCheckUser",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "description": "type user id",
+                                        "type": "integer"
+                                    },
+                                    "permission": {
+                                        "description": "permission of one of an Admin",
+                                        "type": "string"
+                                    },
+                                    "message": {
+                                        "description": "message of one of an Admin",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/checkUser/{checkUser}": {
+            "get": {
+                "tags": [
+                    "CheckUser"
+                ],
+                "summary": "Get one data from CheckUser database",
+                "description": "Via this link a CheckUser`s data comes to show",
+                "operationId": "showCheckUser",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "checkUser",
+                        "in": "path",
+                        "description": "ID for checkUser data",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/checkUser/{checkUser}/update": {
+            "put": {
+                "tags": [
+                    "CheckUser"
+                ],
+                "summary": "Updated",
+                "description": "Update this checkUser",
+                "operationId": "updateCheckUser",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "checkUser",
+                        "in": "path",
+                        "description": "checkUser that to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "permission": {
+                                        "description": "permission of one of an Admin",
+                                        "type": "string"
+                                    },
+                                    "message": {
+                                        "description": "massege of one of an Admin",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid avatar supplied"
+                    },
+                    "404": {
+                        "description": "avatar not found"
+                    },
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/checkUser/{checkUser}/delete": {
+            "delete": {
+                "tags": [
+                    "CheckUser"
+                ],
+                "summary": "Deletes a checkUser",
+                "operationId": "destroyCheckUser",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "checkUser",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid course supplied"
+                    },
+                    "404": {
+                        "description": "Avatar not found"
+                    }
+                }
+            }
+        },
+        "/api/directionCategory": {
+            "get": {
+                "tags": [
+                    "DirectionCategory"
+                ],
+                "summary": "Get all data from DirectionCategory database",
+                "description": "Via this link All DirectionCategory` datas come",
+                "operationId": "direction_category",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/direction": {
+            "get": {
+                "tags": [
+                    "Direction"
+                ],
+                "summary": "Get all data from Direction database",
+                "description": "Via this link All Courses` datas come",
+                "operationId": "course",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Direction"
+                ],
+                "summary": "Create a new direction",
+                "description": "Create a new direction for course table in the database",
+                "operationId": "storeDirection",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "description": "Type a title for a course",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid ID supplier"
+                    },
+                    "404": {
+                        "description": "Direction not found"
+                    }
+                }
+            }
+        },
+        "/api/direction/{id}": {
+            "get": {
+                "tags": [
+                    "Direction"
+                ],
+                "summary": "Get one data from Direction database",
+                "description": "Via this link a Direction`s data comes to show",
+                "operationId": "showDirection",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID for direction data",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/direction/{direction}/update": {
+            "put": {
+                "tags": [
+                    "Direction"
+                ],
+                "summary": "Updated",
+                "description": "Update this direction",
+                "operationId": "updateDirection",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "direction",
+                        "in": "path",
+                        "description": "direction that to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "description": "Type a title for a course",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid direction supplied"
+                    },
+                    "404": {
+                        "description": "direction not found"
+                    },
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/direction/{id}/delete": {
+            "delete": {
+                "tags": [
+                    "Direction"
+                ],
+                "summary": "Deletes a direction",
+                "operationId": "destroyDirection",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid direction supplied"
+                    },
+                    "404": {
+                        "description": "direction not found"
+                    }
+                }
+            }
+        },
+        "/api/district": {
+            "get": {
+                "tags": [
+                    "DistrictEducation"
+                ],
+                "summary": "Get all data from DistrictEducation database",
+                "description": "Via this link All District Education` datas come",
+                "operationId": "districtEducation",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "DistrictEducation"
+                ],
+                "summary": "Register a district",
+                "operationId": "storeDistrictEducation",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Type your district education name",
+                                        "type": "string"
+                                    },
+                                    "fillial_id": {
+                                        "description": "Type fillial id",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/district/{districtEducation}": {
+            "get": {
+                "tags": [
+                    "DistrictEducation"
+                ],
+                "summary": "Get one data from District Education database",
+                "description": "Via this link a District Education`s data comes to show",
+                "operationId": "showDistrictEducation",
+                "parameters": [
+                    {
+                        "name": "districtEducation",
+                        "in": "path",
+                        "description": "ID for districtEducation data",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/district/{districtEducation}/update": {
+            "put": {
+                "tags": [
+                    "DistrictEducation"
+                ],
+                "summary": "Updated",
+                "description": "Update this districtEducation",
+                "operationId": "updateDistrictEducation",
+                "parameters": [
+                    {
+                        "name": "districtEducation",
+                        "in": "path",
+                        "description": "districtEducation that to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Type your district education name",
+                                        "type": "string"
+                                    },
+                                    "fillial_id": {
+                                        "description": "Type fillial id",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid districtEducation supplied"
+                    },
+                    "404": {
+                        "description": "districtEducation not found"
+                    },
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/district/{districtEducation}/delete": {
+            "delete": {
+                "tags": [
+                    "DistrictEducation"
+                ],
+                "summary": "Deletes a districtEducation",
+                "operationId": "destroyDistrictEducation",
+                "parameters": [
+                    {
+                        "name": "districtEducation",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid course supplied"
+                    },
+                    "404": {
+                        "description": "course not found"
+                    }
+                }
+            }
+        },
+        "/api/education": {
+            "get": {
+                "tags": [
+                    "Education"
+                ],
+                "summary": "Get all data from Education database",
+                "description": "Via this link All Education` datas come",
+                "operationId": "education",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Education"
+                ],
+                "summary": "Register a education",
+                "operationId": "storeEducation",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "region_id": {
+                                        "description": "Type your district education id",
+                                        "type": "integer"
+                                    },
+                                    "user_id": {
+                                        "description": "Type user id",
+                                        "type": "integer"
+                                    },
+                                    "enter_date": {
+                                        "description": "Type your enter date",
+                                        "type": "string"
+                                    },
+                                    "end_date": {
+                                        "description": "Type your end date",
+                                        "type": "string"
+                                    },
+                                    "education_name": {
+                                        "description": "Type your end date",
+                                        "type": "string"
+                                    },
+                                    "specialization": {
+                                        "description": "Type your end date",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/education/{education}": {
+            "get": {
+                "tags": [
+                    "Education"
+                ],
+                "summary": "Get one data from Education database",
+                "description": "Via this link a Education`s data comes to show",
+                "operationId": "showEducation",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "education",
+                        "in": "path",
+                        "description": "ID for education data",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/education/{education}/update": {
+            "put": {
+                "tags": [
+                    "Education"
+                ],
+                "summary": "Updated",
+                "description": "Update this education",
+                "operationId": "updateEducation",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "education",
+                        "in": "path",
+                        "description": "education that to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "region_id": {
+                                        "description": "Type your region id",
+                                        "type": "integer"
+                                    },
+                                    "user_id": {
+                                        "description": "Type user id",
+                                        "type": "integer"
+                                    },
+                                    "enter_date": {
+                                        "description": "Type your enter date",
+                                        "type": "string"
+                                    },
+                                    "end_date": {
+                                        "description": "Type your end date",
+                                        "type": "string"
+                                    },
+                                    "education_name": {
+                                        "description": "Type your education name",
+                                        "type": "string"
+                                    },
+                                    "specialization": {
+                                        "description": "Type your specialization",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid education supplied"
+                    },
+                    "404": {
+                        "description": "education not found"
+                    },
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/education/{education}/delete": {
+            "delete": {
+                "tags": [
+                    "Education"
+                ],
+                "summary": "Deletes a education",
+                "operationId": "destroyEducation",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "education",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid course supplied"
+                    },
+                    "404": {
+                        "description": "course not found"
+                    }
+                }
+            }
+        },
+        "/api/evaluate/{user_id}": {
+            "get": {
+                "tags": [
+                    "Evaluate"
+                ],
+                "summary": "Get all data from evaluate database",
+                "description": "Via this link All evaluate` datas come",
+                "operationId": "evaluate",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "user_id for check data",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/direction_user/{direction_id}": {
+            "get": {
+                "tags": [
+                    "Evaluate"
+                ],
+                "summary": "Get all data from evaluate database",
+                "description": "Via this link All evaluate` datas come",
+                "operationId": "countDirectionUser",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "direction_id",
+                        "in": "path",
+                        "description": "direction_id for check data",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/direct/{direction_id}": {
+            "get": {
+                "tags": [
+                    "Evaluate"
+                ],
+                "summary": "Get all data from evaluate database",
+                "description": "Via this link All evaluate` datas come",
+                "operationId": "directionByUserId",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "direction_id",
+                        "in": "path",
+                        "description": "direction_id for check data",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/filial": {
+            "get": {
+                "tags": [
+                    "Filial"
+                ],
+                "summary": "Get all data from fillials database",
+                "description": "Via this link All fillials` datas come",
+                "operationId": "filials",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/pasport": {
+            "get": {
+                "tags": [
+                    "Pasport"
+                ],
+                "summary": "Get all data from Pasport database",
+                "description": "Via this link All Pasport` datas come",
+                "operationId": "pasport",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Pasport"
+                ],
+                "summary": "Register a pasport",
+                "operationId": "storePasport",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "pnfl": {
+                                        "description": "Type your pnfl",
+                                        "type": "integer"
+                                    },
+                                    "pasport_seria": {
+                                        "description": "Type your pasport seria",
+                                        "type": "string"
+                                    },
+                                    "pasport_seria_code": {
+                                        "description": "Type your pasport seria code",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/pasport/{pasport}": {
+            "get": {
+                "tags": [
+                    "Pasport"
+                ],
+                "summary": "Get one data from Pasport database",
+                "description": "Via this link a Pasport`s data comes to show",
+                "operationId": "showPasport",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pasport",
+                        "in": "path",
+                        "description": "ID for pasport data",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/pasport/{pasport}/update": {
+            "put": {
+                "tags": [
+                    "Pasport"
+                ],
+                "summary": "Updated",
+                "description": "Update this pasport",
+                "operationId": "updatePasport",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pasport",
+                        "in": "path",
+                        "description": "pasport that to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "pnfl": {
+                                        "description": "Type your pnfl",
+                                        "type": "integer"
+                                    },
+                                    "pasport_seria": {
+                                        "description": "Type your pasport seria",
+                                        "type": "string"
+                                    },
+                                    "pasport_seria_code": {
+                                        "description": "Type your pasport seria code",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid pasport supplied"
+                    },
+                    "404": {
+                        "description": "pasport not found"
+                    },
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/pasport/{pasport}/delete": {
+            "delete": {
+                "tags": [
+                    "Pasport"
+                ],
+                "summary": "Deletes a pasport",
+                "operationId": "destroyPasport",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "pasport",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid course supplied"
+                    },
+                    "404": {
+                        "description": "course not found"
+                    }
+                }
+            }
+        },
+        "/api/personal": {
+            "get": {
+                "tags": [
+                    "Personal Info"
+                ],
+                "summary": "Get all data from Personal Info database",
+                "description": "Via this link All Personal Infos` datas come",
+                "operationId": "personal",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Personal Info"
+                ],
+                "summary": "Register a Personal Info",
+                "operationId": "storePersonal",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "description": "Type user id",
+                                        "type": "integer"
+                                    },
+                                    "full_name": {
+                                        "description": "Type your full name",
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "description": "Type your email",
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "description": "Type your phone",
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "description": "Type your gender",
+                                        "type": "string"
+                                    },
+                                    "birth_date": {
+                                        "description": "Type the date of your birth",
+                                        "type": "string"
+                                    },
+                                    "nationality": {
+                                        "description": "Type the nationality",
+                                        "type": "string"
+                                    },
+                                    "pasport_id": {
+                                        "description": "Type the pasport id",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/personal/{personalInfo}": {
+            "get": {
+                "tags": [
+                    "Personal Info"
+                ],
+                "summary": "Get one data from personal info database",
+                "description": "Via this link a personal`s data comes to show",
+                "operationId": "showPersonal",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "personalInfo",
+                        "in": "path",
+                        "description": "ID for personal data",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/personal/{personalInfo}/update": {
+            "put": {
+                "tags": [
+                    "Personal Info"
+                ],
+                "summary": "Updated",
+                "description": "Update this personal",
+                "operationId": "updatePersonal",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "personal",
+                        "in": "path",
+                        "description": "personal that to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "description": "Type user id",
+                                        "type": "integer"
+                                    },
+                                    "full_name": {
+                                        "description": "Type your full name",
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "description": "Type your email",
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "description": "Type your phone",
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "description": "Type your gender",
+                                        "type": "string"
+                                    },
+                                    "birth_date": {
+                                        "description": "Type the date of your birth",
+                                        "type": "string"
+                                    },
+                                    "nationality": {
+                                        "description": "Type the nationality",
+                                        "type": "string"
+                                    },
+                                    "pasport_id": {
+                                        "description": "Type the pasport id",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid personal supplied"
+                    },
+                    "404": {
+                        "description": "personal not found"
+                    },
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/personal/{personalInfo}/delete": {
+            "delete": {
+                "tags": [
+                    "Personal Info"
+                ],
+                "summary": "Deletes a personal",
+                "operationId": "destroyPersonal",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "personal",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid personal supplied"
+                    },
+                    "404": {
+                        "description": "personal not found"
+                    }
+                }
+            }
+        },
+        "/api/region": {
+            "get": {
+                "tags": [
+                    "Region"
+                ],
+                "summary": "Get all data from Region database",
+                "description": "Via this link All Region` datas come",
+                "operationId": "region",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/training": {
+            "get": {
+                "tags": [
+                    "Training"
+                ],
+                "summary": "Get all data from training database",
+                "description": "Via this link All training` datas come",
+                "operationId": "training",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Training"
+                ],
+                "summary": "Register a training",
+                "operationId": "storeTraining",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "description": "Type user id",
+                                        "type": "integer"
+                                    },
+                                    "region_id": {
+                                        "description": "Type region id",
+                                        "type": "integer"
+                                    },
+                                    "speciality": {
+                                        "description": "Type fillial id",
+                                        "type": "string"
+                                    },
+                                    "direction": {
+                                        "description": "Type your direction",
+                                        "type": "string"
+                                    },
+                                    "date_start": {
+                                        "description": "Type your start date",
+                                        "type": "string"
+                                    },
+                                    "date_end": {
+                                        "description": "Type your end date",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/training/{training}": {
+            "get": {
+                "tags": [
+                    "Training"
+                ],
+                "summary": "Get one data from Training database",
+                "description": "Via this link a Training`s data comes to show",
+                "operationId": "showTraining",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "training",
+                        "in": "path",
+                        "description": "ID for training data",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/training/{training}/update": {
+            "put": {
+                "tags": [
+                    "Training"
+                ],
+                "summary": "Updated",
+                "description": "Update this training",
+                "operationId": "updateTraining",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "training",
+                        "in": "path",
+                        "description": "training that to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "description": "Type user id",
+                                        "type": "integer"
+                                    },
+                                    "region_id": {
+                                        "description": "Type region id",
+                                        "type": "integer"
+                                    },
+                                    "speciality": {
+                                        "description": "Type fillial id",
+                                        "type": "string"
+                                    },
+                                    "direction": {
+                                        "description": "Type your direction",
+                                        "type": "string"
+                                    },
+                                    "date_start": {
+                                        "description": "Type your start date",
+                                        "type": "string"
+                                    },
+                                    "date_end": {
+                                        "description": "Type your end date",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid training supplied"
+                    },
+                    "404": {
+                        "description": "training not found"
+                    },
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/training/{training}/delete": {
+            "delete": {
+                "tags": [
+                    "Training"
+                ],
+                "summary": "Deletes a training",
+                "operationId": "destroyTraining",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "training",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid course supplied"
+                    },
+                    "404": {
+                        "description": "course not found"
+                    }
+                }
+            }
+        },
+        "/api/university": {
+            "get": {
+                "tags": [
+                    "University"
+                ],
+                "summary": "Get all data from university database",
+                "description": "Via this link All university` datas come",
+                "operationId": "university",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "University"
+                ],
+                "summary": "Register a university",
+                "operationId": "storeUniversity",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Type your university name",
+                                        "type": "string"
+                                    },
+                                    "district_education_id": {
+                                        "description": "Type your district education id",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/university/{university}": {
+            "get": {
+                "tags": [
+                    "University"
+                ],
+                "summary": "Get one data from University database",
+                "description": "Via this link a University`s data comes to show",
+                "operationId": "showUniversity",
+                "parameters": [
+                    {
+                        "name": "university",
+                        "in": "path",
+                        "description": "ID for university data",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/university/{university}/update": {
+            "put": {
+                "tags": [
+                    "University"
+                ],
+                "summary": "Updated",
+                "description": "Update this university",
+                "operationId": "updateUniversity",
+                "parameters": [
+                    {
+                        "name": "university",
+                        "in": "path",
+                        "description": "university that to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "description": "Type your university name",
+                                        "type": "string"
+                                    },
+                                    "district_education_id": {
+                                        "description": "Type your district education id",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid university supplied"
+                    },
+                    "404": {
+                        "description": "university not found"
+                    },
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/university/{university}/delete": {
+            "delete": {
+                "tags": [
+                    "University"
+                ],
+                "summary": "Deletes a university",
+                "operationId": "destroyUniversity",
+                "parameters": [
+                    {
+                        "name": "university",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid course supplied"
+                    },
+                    "404": {
+                        "description": "course not found"
+                    }
+                }
+            }
+        },
+        "/api/userPdf": {
+            "get": {
+                "tags": [
+                    "UserPDF"
+                ],
+                "summary": "Get all data from UserPdf database",
+                "description": "Via this link All UserPdf` datas come",
+                "operationId": "user_pdf",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "UserPDF"
+                ],
+                "summary": "Store an pdf file",
+                "operationId": "storeUserPdf",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "description": "Type user id",
+                                        "type": "integer"
+                                    },
+                                    "direction_category_id": {
+                                        "description": "Type direction category id",
+                                        "type": "integer"
+                                    },
+                                    "pdf": {
+                                        "description": "Upload your pdf file",
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/userPdf/{userPdf}": {
+            "get": {
+                "tags": [
+                    "UserPDF"
+                ],
+                "summary": "Get one data from UserPDF database",
+                "description": "Via this link a UserPDF`s data comes to show",
+                "operationId": "showUserPdf",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "userPdf",
+                        "in": "path",
+                        "description": "ID for userPdf data",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/userPdf/{userPdf}/update": {
+            "put": {
+                "tags": [
+                    "UserPDF"
+                ],
+                "summary": "Updated",
+                "description": "Update this userPDF",
+                "operationId": "updateUserPdf",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "userPdf",
+                        "in": "path",
+                        "description": "userPDF that to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "pdf": {
+                                        "description": "Upload your pdf file",
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid avatar supplied"
+                    },
+                    "404": {
+                        "description": "avatar not found"
+                    },
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/userPdf/{id}/delete": {
+            "delete": {
+                "tags": [
+                    "UserPDF"
+                ],
+                "summary": "Deletes a userPdf",
+                "operationId": "destroyUserPdf",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid course supplied"
+                    },
+                    "404": {
+                        "description": "Avatar not found"
+                    }
+                }
+            }
+        },
+        "/api/work": {
+            "get": {
+                "tags": [
+                    "Work"
+                ],
+                "summary": "Get all data from Work database",
+                "description": "Via this link All Work` datas come",
+                "operationId": "work",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Work"
+                ],
+                "summary": "Register a education",
+                "operationId": "storeWork",
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "description": "Type your district user id",
+                                        "type": "integer"
+                                    },
+                                    "region_id": {
+                                        "description": "Type region id",
+                                        "type": "integer"
+                                    },
+                                    "district": {
+                                        "description": "Type your district",
+                                        "type": "string"
+                                    },
+                                    "work_place": {
+                                        "description": "Type your work place",
+                                        "type": "string"
+                                    },
+                                    "faculty": {
+                                        "description": "Type your faculty",
+                                        "type": "string"
+                                    },
+                                    "cafedra": {
+                                        "description": "Type your cafedra",
+                                        "type": "string"
+                                    },
+                                    "position": {
+                                        "description": "Type your position",
+                                        "type": "string"
+                                    },
+                                    "work_name": {
+                                        "description": "Type your work name",
+                                        "type": "string"
+                                    },
+                                    "work_phone": {
+                                        "description": "Type your work phone",
+                                        "type": "string"
+                                    },
+                                    "date_start": {
+                                        "description": "Type your start date",
+                                        "type": "string"
+                                    },
+                                    "date_end": {
+                                        "description": "Type your end date",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/work/{work}": {
+            "get": {
+                "tags": [
+                    "Work"
+                ],
+                "summary": "Get one data from Work database",
+                "description": "Via this link a Work`s data comes to show",
+                "operationId": "showWork",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "work",
+                        "in": "path",
+                        "description": "ID for work data",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+        "/api/work/{work}/update": {
+            "put": {
+                "tags": [
+                    "Work"
+                ],
+                "summary": "Updated",
+                "description": "Update this Work",
+                "operationId": "updateWork",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "work",
+                        "in": "path",
+                        "description": "Work that to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Input data format",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "description": "Type your user id",
+                                        "type": "integer"
+                                    },
+                                    "region_id": {
+                                        "description": "Type region id",
+                                        "type": "integer"
+                                    },
+                                    "district": {
+                                        "description": "Type your district",
+                                        "type": "string"
+                                    },
+                                    "work_place": {
+                                        "description": "Type your work place",
+                                        "type": "string"
+                                    },
+                                    "faculty": {
+                                        "description": "Type your faculty",
+                                        "type": "string"
+                                    },
+                                    "cafedra": {
+                                        "description": "Type your cafedra",
+                                        "type": "string"
+                                    },
+                                    "position": {
+                                        "description": "Type your position",
+                                        "type": "string"
+                                    },
+                                    "work_name": {
+                                        "description": "Type your work name",
+                                        "type": "string"
+                                    },
+                                    "date_start": {
+                                        "description": "Type your start date",
+                                        "type": "string"
+                                    },
+                                    "date_end": {
+                                        "description": "Type your end date",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Invalid education supplied"
+                    },
+                    "404": {
+                        "description": "education not found"
+                    },
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/work/{work}/delete": {
+            "delete": {
+                "tags": [
+                    "Work"
+                ],
+                "summary": "Deletes a work",
+                "operationId": "destroyWork",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "Set language parameter by typing uz, ru, en",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "work",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid course supplied"
+                    },
+                    "404": {
+                        "description": "course not found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearer_token": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    }
+}
